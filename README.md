@@ -1,4 +1,4 @@
-# Assignment 1
+# Assignment
 
 ## Create Your Own Branch
 
