@@ -48,6 +48,11 @@
 
 3. Use Postman to trigger the REST controller and test the CRUD operations.
 
+## Commit and Push Changes
+
+1. Push your changes to the remote git repository.
+
+
 
 Note: Make sure to configure your application.properties or application.yml file with the necessary database connection details and other configurations.
 
