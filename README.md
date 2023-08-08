@@ -52,7 +52,9 @@
 
 5. Soft delete is require when deleting entity.
 
-6. Able to search by entity's properties
+6. Able to search by entity's properties.
+
+7. Implement pop up message using SweetAlert when user click delete button.
 
 ## Commit and Push Changes
 
