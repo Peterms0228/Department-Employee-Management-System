@@ -48,6 +48,12 @@
 
 3. Use Postman to trigger the REST controller and test the CRUD operations.
 
+4. Implement paging and sorting feature.
+
+5. Soft delete is require when deleting entity.
+
+6. Able to search by entity's properties
+
 ## Commit and Push Changes
 
 1. Push your changes to the remote git repository.
