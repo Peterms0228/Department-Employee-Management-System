@@ -17,6 +17,7 @@
         - Spring Web
         - Spring Data JPA
         - MySQL Driver
+        - Thymeleaf
 
 2. Import the generated project file into Intellij:
     - Create a new workspace in Intellij.
@@ -48,13 +49,15 @@
 
 3. Use Postman to trigger the REST controller and test the CRUD operations.
 
-4. Implement paging and sorting feature.
+4. Use Thymeleaf to create front end screen to access CRUD operations.
 
-5. Soft delete is require when deleting entity.
+5. Implement paging and sorting feature.
 
-6. Able to search by entity's properties.
+6. Soft delete is require when deleting entity.
 
-7. Implement pop up message using SweetAlert when user click delete button.
+7. Able to search by entity's properties.
+
+8. Implement pop up message using SweetAlert when user click delete button.
 
 ## Commit and Push Changes
 
