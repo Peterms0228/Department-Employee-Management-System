@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Employee Update</title>
+</head>
+<body>
+  <div class="container my-4">
+    <h1>Employee Management System</h1>
+    <hr/>
+    <h2>Update Employee</h2>
+
+    <form action="#" th:action="@{/employee/update/{id}/submit(id=${employee.id})}" th:object="${employee}" method="POST">
+      <div class="input-group col-md-3 p-1 pb-3">
+        <input type="text" class="form-control" id="name" th:field="*{name}" placeholder="Employee Name" th:value="*{name}" required/>
+      </div>
+      <div class="input-group col-md-3 p-1 pb-3">
+        <input type="text" class="form-control" id="phoneNo" th:field="*{phoneNo}" placeholder="Phone No" th:value="*{phoneNo}" required/>
+      </div>
+      <div class="input-group col-md-3 p-1 pb-3">
+        <select class="form-control" id="dept" th:field="*{dept}">
+          <option th:each="d: ${departmentList}" th:value="${d.id}" th:text="${d.name}" th:selected="${d.id == employee.dept.id}"></option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary px-5">Update Employee</button>
+    </form>
+
+    <hr/>
+    <a th:href="@{/employee/list}">Back to Employee List</a>
+  </div>
+</body>
+</html>
