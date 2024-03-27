@@ -25,7 +25,7 @@ public class Department {
     @Column(name="dept_location")
     private String location;
 
-    @Column(name="dept_status")
+    @Column(name="dept_status", length = 1)
     private String status;
 
     @OneToMany

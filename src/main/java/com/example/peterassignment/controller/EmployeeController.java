@@ -63,7 +63,6 @@ public class EmployeeController {
     //------<end>- REST Controller -<end>------
 
 
-
     // Get List with Search Elements
     @GetMapping(value = "/list")
     public String employeeList(@RequestParam(value = "searchType", required = false) String searchType,

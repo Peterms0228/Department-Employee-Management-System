@@ -30,7 +30,7 @@
             <option selected value="id">Id</option>
             <option th:selected="${'name'.toString().equals(searchType)}" value="name">Name</option>
             <option th:selected="${'phoneNo'.toString().equals(searchType)}" value="phoneNo">Phone No</option>
-            <option th:selected="${'dept'.toString().equals(searchType)}" value="dept">Department</option>
+            <option th:selected="${'department'.toString().equals(searchType)}" value="department">Department</option>
           </select>
         </div>
         <div class="col-md-auto px-1">
@@ -52,7 +52,7 @@
         <th><a class="nav-link" th:href="@{/employee/list(sortType='id', page=${employeePage.number}, searchType=${searchType}, search=${search})}">ID</a></th>
         <th><a class="nav-link" th:href="@{/employee/list(sortType='name', page=${employeePage.number}, searchType=${searchType}, search=${search})}">Name</a></th>
         <th><a class="nav-link" th:href="@{/employee/list(sortType='phoneNo', page=${employeePage.number}, searchType=${searchType}, search=${search})}">Phone No</a></th>
-        <th><a class="nav-link" th:href="@{/employee/list(sortType='deptName', page=${employeePage.number}, searchType=${searchType}, search=${search})}">Department</a></th>
+        <th><a class="nav-link" th:href="@{/employee/list(sortType='department', page=${employeePage.number}, searchType=${searchType}, search=${search})}">Department</a></th>
         <th>Action</th>
       </tr>
       </thead>
@@ -61,7 +61,8 @@
         <td th:text="${employee.id}"></td>
         <td th:text="${employee.name}"></td>
         <td th:text="${employee.phoneNo}"></td>
-        <td th:text="${employee.dept.status.equals('Y')} ? ${employee.dept.name} : pending"></td>
+        <td th:if="${employee.department != null}" th:text="${employee.department.name}"></td>
+        <td th:if="${employee.department == null}"><span th:class="text-danger" th:text="pending"></span></td>
         <td>
           <a th:href="@{/employee/update/{id}(id=${employee.id})}" methods="get">
             <button type="button" class="btn btn-primary">Update</button>
@@ -79,7 +80,10 @@
         <li th:class="${employeePage.first ? 'page-item disabled' : 'page-item'}">
           <a class="page-link" th:href="@{/employee/list(page=${employeePage.number - 1}, searchType=${searchType}, search=${search})}">Previous</a>
         </li>
-        <li th:class="${currentPage.equals(p - 1) ? 'page-item active' : 'page-item'}" th:each="p: ${#numbers.sequence(1, employeePage.totalPages)}">
+        <li th:if="${totalRows <= 0}" class="page-item disabled">
+          <a class="page-link">1</a>
+        </li>
+        <li th:if="${totalRows > 0}" th:class="${currentPage.equals(p - 1) ? 'page-item active' : 'page-item'}" th:each="p: ${#numbers.sequence(1, employeePage.totalPages)}">
           <a class="page-link" th:href="@{/employee/list(page=${p - 1}, searchType=${searchType}, search=${search})}" th:text="${p}"></a>
         </li>
         <li th:class="${employeePage.last ? 'page-item disabled' : 'page-item'}">

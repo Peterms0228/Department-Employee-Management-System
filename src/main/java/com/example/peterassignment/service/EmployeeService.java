@@ -27,7 +27,9 @@ public class EmployeeService implements IEmployeeService{
         Optional<Employee> optionalEmployee = employeeRepository.findById(id);
         return optionalEmployee.get();
     }
-
+    public List<Employee> getAllEmployeesTest() {
+        return employeeRepository.findAll();
+    }
     public List<Employee> getAllEmployees() {
         return employeeRepository.findAll(EmployeeSpecification.findAll());
     }
@@ -47,7 +49,7 @@ public class EmployeeService implements IEmployeeService{
         Employee existingEmployee = employeeRepository.findById(employee.getId()).get();
         existingEmployee.setName(employee.getName());
         existingEmployee.setPhoneNo(employee.getPhoneNo());
-        existingEmployee.setDept(employee.getDept());
+        existingEmployee.setDepartment(employee.getDepartment());
         Employee updatedEmployee = employeeRepository.save(existingEmployee);
         return updatedEmployee;
     }

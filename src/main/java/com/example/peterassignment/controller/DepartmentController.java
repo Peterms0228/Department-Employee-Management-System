@@ -117,6 +117,12 @@ public class DepartmentController {
     public String departmentDelete(@PathVariable("id") Long id){
         Department department = departmentService.getDepartmentById(id);
         department.setStatus("N");
+        if(department.getEmployees().size() > 0){
+            for(int i = 0; i < department.getEmployees().size(); i++){
+                department.getEmployees().get(i).setDepartment(null);
+            }
+        }
+
         departmentService.updateDepartment(department);
         return "redirect:/department/list";
     }

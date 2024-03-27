@@ -24,12 +24,12 @@ public class Employee {
     @Column(name="emp_phone_no")
     private String phoneNo;
 
-    @Column(name="emp_status")
+    @Column(name="emp_status", length = 1)
     private String status;
 
     @ManyToOne
     @JoinColumn(name = "emp_dept_id")
-    private Department dept;
+    private Department department;
 
     public String toString(){
         return id + ", " + name + ", " + phoneNo;

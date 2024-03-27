@@ -82,10 +82,13 @@
                 <li th:class="${departmentPage.first ? 'page-item disabled' : 'page-item'}">
                     <a class="page-link" th:href="@{/department/list(page=${departmentPage.number - 1}, searchType=${searchType}, search=${search})}">Previous</a>
                 </li>
-                <li class="page-item" th:class="${currentPage.equals(p - 1) ? 'page-item active' : 'page-item'}" th:each="p: ${#numbers.sequence(1, departmentPage.totalPages)}">
+                <li th:if="${totalRows <= 0}" class="page-item disabled">
+                    <a class="page-link">1</a>
+                </li>
+                <li th:if="${totalRows > 0}" th:class="${currentPage.equals(p - 1) ? 'page-item active' : 'page-item'}" th:each="p: ${#numbers.sequence(1, departmentPage.totalPages)}">
                     <a class="page-link" th:href="@{/department/list(page=${p - 1}, searchType=${searchType}, search=${search})}" th:text="${p}"></a>
                 </li>
-                <li class="page-item" th:class="${departmentPage.last ? 'page-item disabled' : 'page-item'}">
+                <li th:class="${departmentPage.last ? 'page-item disabled' : 'page-item'}">
                     <a class="page-link" th:href="@{/department/list(page=${departmentPage.number + 1}, searchType=${searchType}, search=${search})}">Next</a>
                 </li>
             </ul>

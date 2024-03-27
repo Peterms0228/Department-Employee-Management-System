@@ -20,8 +20,9 @@
         <input type="text" class="form-control" id="phoneNo" th:field="*{phoneNo}" placeholder="Phone No" th:value="*{phoneNo}" required/>
       </div>
       <div class="input-group col-md-3 p-1 pb-3">
-        <select class="form-control" id="dept" th:field="*{dept}">
-          <option th:each="d: ${departmentList}" th:value="${d.id}" th:text="${d.name}" th:selected="${d.id == employee.dept.id}"></option>
+        <select class="form-control" id="department" th:field="*{department}">
+          <option selected th:value='NULL' th:text="pending"></option>
+          <option th:each="d: ${departmentList}" th:value="${d.id}" th:text="${d.name}" th:selected="${employee.department != null and d.id == employee.department.id}"></option>
         </select>
       </div>
       <button type="submit" class="btn btn-primary px-5">Update Employee</button>
